@@ -1,10 +1,10 @@
 <?php
 session_start();
-require 'db.php';
+require __DIR__ . '/db.php';
 
 // Перевірка авторизації
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: /task_management/app/login.php');
     exit;
 }
 
@@ -35,22 +35,20 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Task Management</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/task_management/app/style.css">
 </head>
 <body>
-    <h1>Welcome, <?= htmlspecialchars($_SESSION['username']) ?></h1>
-    <a href="logout.php">Logout</a>
-    <form method="GET">
-        <label>Filter by Status:</label>
-        <select name="status">
-            <option value="">All</option>
-            <option value="pending" <?= $statusFilter === 'pending' ? 'selected' : '' ?>>Pending</option>
-            <option value="completed" <?= $statusFilter === 'completed' ? 'selected' : '' ?>>Completed</option>
-        </select>
-        <label>Search:</label>
-        <input type="text" name="search" value="<?= htmlspecialchars($searchQuery) ?>">
-        <button type="submit">Filter</button>
-    </form>
+    <!-- Навигация -->
+    <div class="navbar">
+        <div class="username">Welcome, <?= htmlspecialchars($_SESSION['username']) ?></div>
+        <div class="nav-buttons">
+            <a href="update_profile.php" class="btn">Update Profile</a>
+            <a href="logout.php" class="btn logout">Logout</a>
+        </div>
+    </div>
+
+    <!-- Контент -->
+    <h1>Task Management</h1>
     <a href="add_task.php">Add New Task</a>
     <table>
         <tr>

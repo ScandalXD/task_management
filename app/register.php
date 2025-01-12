@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
         $stmt->execute([$username, $password]);
-        header('Location: login.php'); // Переадресація на логін
+        header('Location: /task_management/app/login.php'); // Переадресація на логін
         exit;
     }
 }
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/task_management/app/style.css">
 </head>
 <body>
     <h1>Register</h1>
@@ -36,6 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Register</button>
     </form>
     <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <a href="login.php">Login</a>
+    <a href="/task_management/app/login.php">Login</a>
 </body>
 </html>

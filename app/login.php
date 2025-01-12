@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php';
+require __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Установка сесійних змінних
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        header('Location: index.php'); // Переадресація на головну сторінку
+        header('Location: /task_management/app/index.php'); // Переадресація на головну сторінку
         exit;
     } else {
         $error = "Invalid credentials!";
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/task_management/app/style.css">
 </head>
 <body>
     <h1>Login</h1>
@@ -42,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Login</button>
     </form>
     <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <a href="register.php">Register</a>
+    <a href="/task_management/app/register.php">Register</a>
 </body>
 </html>
