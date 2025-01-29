@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/db.php';
+require  'db.php';
 
 $id = $_GET['id'];
 $stmt = $pdo->prepare("SELECT * FROM tasks WHERE id = ?");
@@ -14,14 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("UPDATE tasks SET title = ?, description = ?, status = ? WHERE id = ?");
     $stmt->execute([$title, $description, $status, $id]);
 
-    header('Location: /task_management/app/index.php');
+    header('Location: index.php');
     exit;
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="/task_management/app/style.css">
+<link rel="stylesheet" href="style.css">
 
 <head>
     <meta charset="UTF-8">
@@ -42,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </select><br><br>
         <button type="submit">Save Changes</button>
     </form>
-    <a href="/task_management/app/index.php">Back</a>
+    <a href="index.php">Back</a>
 </body>
 </html>

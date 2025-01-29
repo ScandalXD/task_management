@@ -6,6 +6,6 @@ session_unset(); // Очищує всі змінні сесії
 session_destroy(); // Знищує сесію
 
 // Переадресація на сторінку логіна
-header('Location: /task_management/app/login.php');
+header('Location: login.php');
 exit;
 ?>

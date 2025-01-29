@@ -1,10 +1,10 @@
 <?php
 session_start();
-require __DIR__ . '/db.php';
+require  'db.php';
 
 // Перевірка авторизації
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /task_management/app/login.php');
+    header('Location: login.php');
     exit;
 }
 
@@ -35,7 +35,7 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Task Management</title>
-    <link rel="stylesheet" href="/task_management/app/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Навигация -->

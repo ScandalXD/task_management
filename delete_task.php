@@ -1,16 +1,16 @@
 <?php
 session_start();
-require __DIR__ . '/db.php';
+require  'db.php';
 
 // Проверка авторизации
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /task_management/app/login.php');
+    header('Location: login.php');
     exit;
 }
 
 // Получение ID задачи
 if (!isset($_GET['id'])) {
-    header('Location: /task_management/app/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -27,6 +27,6 @@ $pdo->exec("UPDATE tasks SET id = (@num := @num + 1) WHERE user_id = $user_id OR
 $pdo->exec("ALTER TABLE tasks AUTO_INCREMENT = 1");
 
 // Перенаправление на главную страницу
-header('Location: /task_management/app/index.php');
+header('Location: index.php');
 exit;
 ?>

@@ -4,7 +4,7 @@ require 'db.php';
 
 // Проверка авторизации
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /task_management/app/login.php');
+    header('Location: login.php');
     exit;
 }
 
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_password'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
-    <link rel="stylesheet" href="/task_management/app/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_password'])) {
             <button type="submit" name="update_password">Update Password</button>
         </form>
 
-        <a href="/task_management/app/index.php" class="btn">Back to Home</a>
+        <a href="index.php" class="btn">Back to Home</a>
     </div>
 </body>
 </html>
