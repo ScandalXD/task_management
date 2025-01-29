@@ -6,7 +6,7 @@ Projekt zarządzania zadaniami – aplikacja webowa umożliwiająca użytkowniko
 
 Uczestnicy projektu
 
-Imię Nazwisko 1 – Numer Indeksu 1
+Artur Pylypenko  – 44074
 
 Imię Nazwisko 2 – Numer Indeksu 2
 
@@ -21,8 +21,8 @@ Zainstalowany Docker oraz Docker Compose
 2. Uruchomienie projektu
 
  1. Sklonuj repozytorium:
-   git clone https://github.com/twoje-repo/task-management.git
-   cd task-management
+   git clone https://github.com/ScandalXD/task_management.git
+   cd task_management
 
  2. Uruchom kontenery:
        docker-compose up -d
